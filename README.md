@@ -22,4 +22,4 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![image](https://github.com/aveandrian/intro-component-with-signup-form-master/assets/13519212/dca7d376-30d0-4f0a-be93-4eebd1803c1f)
