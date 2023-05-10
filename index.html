@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  
+  <title>Frontend Mentor | Intro component with sign up form</title>
+  <style>
+    .attribution {  text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="main-descr">
+      <h1 class="main-title">Learn to code by watching others</h1> 
+      <p class="main-text">See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
+        but understanding how developers think is invaluable. </p>
+    </div>
+  <div class="form-container">
+    <div class="sale-container">
+      <p class="sale-text">
+        <span class="sale-bold">Try it free 7 days</span> then $20/mo. thereafter
+      </p>
+    </div>
+    <form  name="signUpForm">
+      <div class="input-container">
+        <input type="text" placeholder="First Name" name="firstName" class="input" >
+        <p class="error firstName-error"></p>
+        <img src="./images/icon-error.svg" class="error-icon error-icon-firstName">
+      </div>
+      <div class="input-container">
+        <input type="text" placeholder="Last Name" name="lastName" class="input">
+        <p class="error lastName-error"></p>
+        <img src="./images/icon-error.svg" class="error-icon error-icon-lastName">
+      </div>
+      <div class="input-container">
+        <input type="text" placeholder="Email Address" name="email" class="input"> 
+        <p class="error email-error"></p>
+        <img src="./images/icon-error.svg" class="error-icon error-icon-email">
+      </div>
+      <div class="input-container">
+        <input type="password" placeholder="Password" name="password" class="input">
+        <p class="error password-error"></p>
+        <img src="./images/icon-error.svg" class="error-icon error-icon-password">
+      </div>
+
+      <button type="submit" class="btn" id="btn">CLAIM YOUR FREE TRIAL</button>
+
+      <p class="agreement">By clicking the button, you are agreeing to our <span class="tns">Terms and Services</span></p>
+    </form>
+  </div>
+  </main>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/aveandrian">aveandrian</a>.
+    </p>
+  </footer>
+  <script>
+    function resetError(){
+      let errorsEls = document.getElementsByClassName('error')
+      for(let i=0; i<errorsEls.length; i++){
+        errorsEls[i].style.display = 'none'
+      }
+      let errorIconsEls = document.getElementsByClassName('error-icon')
+      for(let i=0; i<errorIconsEls.length; i++){
+        errorIconsEls[i].style.visibility = 'hidden'
+      }
+    }
+    document.forms['signUpForm'].onsubmit = function(event){
+      resetError()
+      let isValid = true;
+      const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+      if(this.firstName.value.trim() == ""){
+        document.querySelector('.firstName-error').innerHTML = "First name cannot be empty";
+        document.querySelector('.firstName-error').style.display = 'block';
+        document.querySelector('.error-icon-firstName').style.visibility = "visible";
+        isValid = false
+      }
+      if(this.lastName.value.trim() == ""){
+        document.querySelector('.lastName-error').innerHTML = "Last name cannot be empty";
+        document.querySelector('.lastName-error').style.display = 'block';
+        document.querySelector('.error-icon-lastName').style.visibility = "visible";
+        isValid = false
+      }
+      if(this.email.value.trim() == ""){
+        document.querySelector('.email-error').innerHTML = "Email cannot be empty";
+        document.querySelector('.email-error').style.display = 'block';
+        document.querySelector('.error-icon-email').style.visibility = "visible";
+        isValid = false
+      } else if (!this.email.value.match(regex)) {
+        document.querySelector('.email-error').innerHTML = "Looks like this is not an email";
+        document.querySelector('.email-error').style.display = 'block';
+        document.querySelector('.error-icon-email').style.visibility = "visible";
+        isValid = false
+      }
+      if(this.password.value.trim() == ""){
+        document.querySelector('.password-error').innerHTML = "Password cannot be empty";
+        document.querySelector('.password-error').style.display = 'block'
+        document.querySelector('.error-icon-password').style.visibility = "visible";
+        isValid = false
+      }
+
+      if(!isValid)
+        event.preventDefault();
+        return false
+    }
+  </script>
+</body>
+</html>

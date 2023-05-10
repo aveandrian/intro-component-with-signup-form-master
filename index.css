@@ -1,0 +1,124 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("./images/bg-intro-desktop.png"), hsl(0, 100%, 74%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.125rem;
+    width: 80%;
+    margin-bottom: 1.25rem;
+}
+
+.main-descr {
+    color: white;
+    align-self: center;
+}
+
+.main-title {
+    font-size: 3rem;
+}
+
+.sale-container {
+    background-color: rgb(93, 84, 163);
+    text-align: center;
+    padding-block: 0.125rem;
+    border-radius: 0.625rem;
+    margin-bottom: 1.25rem;
+    color: white;
+    box-shadow: 0 0.625rem 0 rgba(0, 0, 0, 0.3);
+}
+
+.sale-bold {
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.875rem;
+    background-color: white;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 0 rgba(0, 0, 0, 0.3);
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 0.625rem;
+    border-radius: 0.313rem;
+    border: solid 0.063rem hsl(246, 25%, 77%);
+    text-indent: 0.625rem;
+    background: none;
+    width: 100%;
+}
+
+input::placeholder{
+    font-weight: 500;
+}
+
+.error-icon {
+    position: absolute;
+    top: 0.625rem;
+    right: 1.25rem;
+    visibility: hidden;
+}
+
+.error {
+    display: none;
+    margin: 0;
+    font-size: 0.7rem;
+    color: hsl(0, 100%, 74%);
+    font-style: italic;
+    text-align: end;
+}
+
+.btn {
+    background-color: hsl(154, 59%, 51%);
+    padding-block: 0.938rem;
+    border-radius: 0.313rem;
+    color: white;
+    border: none;
+    box-shadow: inset 0 -0.188rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.agreement, .tns {
+    font-size: 0.7rem;
+    text-align: center;
+    margin: 0;
+    color: hsl(246, 25%, 77%);
+}
+
+.tns {
+    color: hsl(0, 100%, 74%) 
+}
+
+
+@media screen and (max-width: 875px) {
+    body {
+        padding: 0 1.25rem;
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+}
